@@ -8,12 +8,12 @@
     <meta name="x5-fullscreen" content="true">
     <meta name="full-screen" content="yes">
 
-    <title>Super Dictionary</title>
+    <title>NOTE BOOK</title>
     <link rel="stylesheet" href="lib/bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <style>
         .logo {
             width: 60%;
-            height: 500px;
+            height: 300px;
             margin: auto;
         }
 
@@ -123,7 +123,9 @@
         }
 
         .contenner{
-            background: url("img/bg1.jpg");
+            background: url("img/bg2.jpg") no-repeat center center;
+            background-size:cover;
+            background-attachment:fixed;
             height: 1500px;
         }
 
@@ -146,7 +148,7 @@
         </div>
     </div>
     <div class="noExtension hide" id="noExtension">
-        NOTE: Please install <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>  to use SUPER DICTIONARY
+        NOTE: Please install <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>  to use NOTE BOOK
     </div>
     <div class="search">
         <input id="search_value" type="text">
@@ -191,13 +193,14 @@
     //     $("#search").attr("disabled",false)
     // }
 
-    var dappAddress = "n1oELyagQNFBDPEpXSRKWXmR2RxbQukHgws";
+    var dappAddress = "n1wX7U3qrzQcECgDJMHVZg37ExqjNrUkMUJ";
 
     //here we use neb.js to call the "get" function to search from the Dictionary
     var nebulas = require("nebulas"),
         Account = nebulas.Account,
         neb = new nebulas.Neb();
-    neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+    //neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
+    neb.setRequest(new nebulas.HttpRequest("https://mainnet.nebulas.io"));
 
     // 搜索功能: 查找Super-Dictionary 中有没有该词条
     $("#search").click(function(){
@@ -277,8 +280,8 @@
     var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
     var nebPay = new NebPay();
     var serialNumber
-    //var callbackUrl = NebPay.config.mainnetUrl;   //如果合约在主网,则使用这个
-    var callbackUrl = NebPay.config.testnetUrl;   //
+    var callbackUrl = NebPay.config.mainnetUrl;   //如果合约在主网,则使用这个
+    //var callbackUrl = NebPay.config.testnetUrl;   //
 
     $("#push").click(function() {
 
